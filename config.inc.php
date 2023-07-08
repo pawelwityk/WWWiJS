@@ -1,9 +1,9 @@
 <?php
 
 const CONFIG = [
-    'db_host'     => 'localhost',
-    'db_name'     => 'mysql',
-    'db_user'     => 'root',
-    'db_password' => '',
+    'db_host'     => 'labagh.pl',
+    'db_name'     => 's410757',
+    'db_user'     => 's410757',
+    'db_password' => '51rkomk0650a',
 ];
 

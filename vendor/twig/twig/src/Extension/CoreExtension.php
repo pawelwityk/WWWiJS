@@ -92,7 +92,7 @@ final class CoreExtension extends AbstractExtension
             $this->dateFormats[1] = $dateIntervalFormat;
         }
     }
-
+    
     /**
      * Gets the default format to be used by the date filter.
      *

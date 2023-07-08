@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+  </br>
+   <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container">
+  
+          <div class="row gy-4 justify-content-center">
+            <div class="col-lg-4">
+              <img src="../resources/brycha2.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-5 content">
+              <h2>{{initialHeader}}</h2>
+              {% if _session.id  %}
+              <form name="formheader" method="post" action="/o_mnie">
+                <textarea name="editedHeader" rows="4" class="rounded" cols="50">{{initialHeader}}</textarea>
+                <br>
+                <input type="submit" value="Zapisz" class="btn btn-send px-5 mb-1 mt-3 w-30">
+              </form>        
+              {% endif%}
+              <p class="fst-italic py-2">
+                {{initialCursive}}
+              </p>
+              {% if _session.id  %}
+              <form name="formcursive" method="post" action="/o_mnie">
+                <textarea name="editedCursive" rows="4" class="rounded" cols="50">{{initialCursive}}</textarea>
+                <br>
+                <input type="submit" value="Zapisz" class="btn btn-send px-5 mb-1 mt-3 w-30">
+              </form>        
+              {% endif%}
+              <p class="m-0">
+                {{initialContent}}
+              </p>
+              {% if _session.id  %}
+              <form name="formcontent" method="post" action="/o_mnie">
+                <textarea name="editedContent" rows="4" class="rounded" cols="50">{{initialContent}}</textarea>
+                <br>
+                <input type="submit" value="Zapisz" class="btn btn-send px-5 mb-1 mt-3 w-30">
+              </form>        
+              {% endif%}
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End About Section -->
+
+{% endblock %}

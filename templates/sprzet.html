@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center mt-4">Wyposażenie studia</h2>
+            <hr class="mt-2 mb-4">
+            <div class="row my-5">
+                <div class="col-md-2 mb-4">
+                    <h4 class="text" style="color:#103df2">Wzmacniacze</h4>
+                    {% for w in wzmacniacze %}
+                        <li class="custom-li">{{w.Nazwa}}</li>
+                        {% if _session.id %}
+                            <a href="/sprzet/delete/{{ w.ID }}"><button type="button" class="btn btn-color mt-1 mb-3">Usuń</button></a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-md-2">
+                    <h4 class="text" style="color:#10f2d4">Słuchawki</h4>
+                    {% for s in sluchawki %}
+                        <li class="custom-li">{{s.Nazwa}}</li>
+                        {% if _session.id %}
+                            <a href="/sprzet/delete/{{ s.ID }}"><button type="button" class="btn btn-color mt-1 mb-3">Usuń</button></a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-md-2">
+                    <h4 class="text" style="color:#f210ae">Mikrofony</h4>
+                    {% for m in mikrofony %}
+                        <li class="custom-li">{{m.Nazwa}}</li>
+                        {% if _session.id %}
+                            <a href="/sprzet/delete/{{ m.ID }}"><button type="button" class="btn btn-color mt-1 mb-3">Usuń</button></a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-md-2">
+                    <h4 class="text" style="color:#f28910">Sterowniki</h4>
+                    {% for st in sterowniki %}
+                        <li class="custom-li">{{st.Nazwa}}</li>
+                        {% if _session.id %}
+                            <a href="/sprzet/delete/{{ st.ID }}"><button type="button" class="btn btn-color mt-1 mb-3">Usuń</button></a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-md-2">
+                    <h4 class="text" style="color:#18df22">Preampy</h4>
+                    {% for p in preampy %}
+                        <li class="custom-li">{{p.Nazwa}}</li>
+                        {% if _session.id %}
+                            <a href="/sprzet/delete/{{ p.ID }}"><button type="button" class="btn btn-color mt-1 mb-3">Usuń</button></a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-md-2">
+                    <h4 class="text" style="color:#de1b0d">System</h4>
+                    {% for sy in system %}
+                        <li class="custom-li">{{sy.Nazwa}}</li>
+                        {% if _session.id %}
+                            <a href="/sprzet/delete/{{ sy.ID }}"><button type="button" class="btn btn-color mt-1 mb-3">Usuń</button></a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% if _session.id %}
+            <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-6">
+                    <form action="/sprzet" method="post">
+                      <div class="form-group">
+                        <label for="category">Kategoria:</label>
+                        <select name="category" id="category" class="form-control">
+                          <option value="Wzmacniacze">Wzmacniacze</option>
+                          <option value="Słuchawki">Słuchawki</option>
+                          <option value="Mikrofony">Mikrofony</option>
+                          <option value="Sterowniki">Sterowniki</option>
+                          <option value="Preampy">Preampy</option>
+                          <option value="System">System</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="name">Nazwa:</label>
+                        <input type="text" name="name" id="name" class="form-control" required>
+                      </div>
+                      <div class="text-center">
+                        <input type="submit" value="Dodaj" class="btn btn-send">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

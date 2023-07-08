@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Już to wiesz, ale przypomnijmy, że każdy blok kodu PHP otwieramy tagiem <?php, a zamykamy tagiem ?>.
  * Jeżeli dany plik zawiera tylko i wyłącznie kod PHP to nie musimy używać tagu zamykającego (jest to dobra praktyka).
@@ -112,8 +113,9 @@ include("helpers.inc.php");
  * Opis wszystkich tablic superglobalnych w PHP znajdziesz na stronie:
  * https://www.php.net/manual/en/language.variables.superglobals.php
  */
-$allowed_pages = ['main', 'galeria'];
 
+$allowed_pages = ['main', 'galeria', 'admin', 'realizacje', 'login','o_mnie', 'kontakt', 'wyloguj_sie', 'sprzet'];
+TwigHelper::getInstance()->addGlobal('_session', $_SESSION);
 if (isset($_GET['page'])
     && $_GET['page']
     && in_array($_GET['page'], $allowed_pages)
@@ -121,13 +123,10 @@ if (isset($_GET['page'])
 ) {
     // Użytkownik podał prawidłową nazwę podstrony.
     include($_GET['page'] . '.php');
-} elseif (!isset($_GET['page'])) {
-    // Użytkownik nie przekazał żadnej nazwy podstrony.
-    include('main.php');
 } else {
     // Użytkownik podał nieprawidłową nazwę podstrony. Następuje dodanie komunikatu błędu, który wyświetli się w ramce.
     // Więcej informacji na temat wyświetlania komunikatów znajdziesz w pliku helpers.inc.php.
-    TwigHelper::addMsg('Page "' . $_GET['page'] . '" not found.', 'error');
+    //TwigHelper::addMsg('Page "' . $_GET['page'] . '" not found.', 'error');
     // Renderujemy tylko główny szablon bez podstrony.
-    print TwigHelper::getInstance()->render('base.html');
+    print TwigHelper::getInstance()->render('index.html');
 }

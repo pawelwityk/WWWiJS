@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center mt-4">Panel Admina</h2>
+                <div class="text-center mb-5">Podaj dane do logowania</div>
+
+                <div class="card my-5 bg-secondary-subtle">    
+                    <form action="index.php?page=login" method="POST">    
+                        <div class="text-center">
+                            <img src="../resources/brysia_taras.jpeg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                                alt="profile">
+                        </div>    
+                        <div class="mb-3 mx-3">
+                            <input type="text" class="form-control" name="username" placeholder="Nazwa użytkownika">
+                        </div>
+                        <div class="mb-3 mx-3">
+                            <input type="password" class="form-control" name="password" placeholder="Hasło">
+                        </div>
+                        <div class="text-center mx-5">
+                            <button type="submit" class="btn btn-send px-5 mb-5 w-50">Zaloguj</button>
+                        </div>
+                    </form>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

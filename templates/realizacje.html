@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class = "realizacja_header">
+    <h2>Utwory zrealizowane przez studio</h2>
+    <h5>(Kliknij w utwór aby go odtworzyć)</h5>
+</div>
+
+
+<div id="spotify-widget" class="spotify">
+</div>
+    
+{% for row in rows %}
+
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action mb-1" onclick="showSpotifyWidget('{{ row.Link }}')">{{row.Autor}} - {{row.Tytuł}}</a>
+        {% if _session.id %}
+            <a href="/realizacje/delete/{{ row.ID }}"><button type="button" class="btn btn-color mb-3">Usuń</button></a>
+        {% endif %}
+        <!-- Dodaj więcej elementów -->
+    </div>
+
+    <div id="spotify-widget"></div>
+
+{% endfor %}
+
+{% if _session.id  %}
+
+    <form class="form_realizacje" name="htmlform" method="post" action="/realizacje">
+        <div class="row form-group" margin="auto">
+            <label for="formGroupExampleInput">Dodaj kolejną realizację:</label>
+            <div class="col-md-3"> 
+                <input type="text" class="form-control" name="autor" placeholder="Autor" required >
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="tytul" placeholder="Tytuł" required >
+            </div>
+            <div class="col-md-3"> 
+                <input type="text" class="form-control" name="link" placeholder="Kod osadzenia" required >
+            </div>
+            <div class="col-md-3"> 
+                <button type="submit" class="btn btn-send px-5 mb-1 w-30">Dodaj</button>
+            </div>
+        </div>
+    </form>
+
+{% endif%}
+
+<script>
+    function showSpotifyWidget(link) {
+        var widgetContainer = document.getElementById('spotify-widget');
+        widgetContainer.innerHTML = '';
+
+        // Tworzenie iframe z widgetem Spotify
+        var iframe = document.createElement('iframe');
+        iframe.setAttribute('src', link);
+        iframe.setAttribute('width', '50%');
+        iframe.setAttribute('height', '152');
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('style', 'border-radius:12px');
+        iframe.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture');
+        iframe.setAttribute('loading', 'lazy')
+
+        widgetContainer.appendChild(iframe);
+    }
+
+</script>
+
+{% endblock %}

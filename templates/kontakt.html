@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="text-center mt-4">Formularz Kontaktowy</h2>
+            <h5 class="text-center mb-5 required">Obowiązkowe pola oznaczone są gwiazdką</h5>
+            <div class="card my-5 bg-secondary-subtle" >
+                <form name="htmlform" method="post" action="/kontakt">
+                    <div class="row form-group" margin="auto">
+                        <label class="required" for="formGroupExampleInput">Dane</label>
+                        <div class="col-md-3"> 
+                            <input type="text" class="form-control" name="imie" placeholder="Imię" required >
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" name="nazwisko" placeholder="Nazwisko" required >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="required" for="formGroupExampleInput">Email</label>
+                            <input type="text" class="form-control" name="email" placeholder="Email" required >
+                        </div>
+                    </div>  
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Usługi</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="opcje[]" value="Mix" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Mix
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="opcje[]" value="Mastering" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Mastering
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="opcje[]" value="Nagranie" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Nagranie
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="opcje[]" value="Produkcja muzyczna" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Produkcja muzyczna
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="opcje[]" value="Inne" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Inne
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Dodatkowe informacje</label>
+                        <textarea class="form-control" name="dodatkowe" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <div class="text-right mt-3"><button type="submit" class="btn btn-send px-5 mb-1 w-30">Wyślij</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

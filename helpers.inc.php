@@ -73,6 +73,8 @@ class DB {
 class TwigHelper {
     private static $twig = null; // tutaj będziemy przechowywać obiekt Twiga
     private static $msg = []; // tutaj będziemy przechowywać komunikaty do wyświetlenia w szablonie base.html
+    private static $logged_in = null;
+
 
     public static function getInstance(): \Twig\Environment {
         // Jeśli w zmiennej statycznej self::$twig nie mamy jeszcze utworzonego obiektu Twiga to go tworzymy.
@@ -114,3 +116,4 @@ class TwigHelper {
 TwigHelper::getInstance()->addGlobal('CONFIG', CONFIG);
 TwigHelper::getInstance()->addFunction(new \Twig\TwigFunction('get_domain', 'get_domain'));
 TwigHelper::getInstance()->addFunction(new \Twig\TwigFunction('get_msg', 'TwigHelper::getMsg'));
+TwigHelper::getInstance()->addGlobal('_post', $_POST);

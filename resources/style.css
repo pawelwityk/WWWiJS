@@ -1,0 +1,109 @@
+.spotify {
+  text-align: center;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#navbar-zgloszenia {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+#div-zgloszenia {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.zgloszenia {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.realizacja_header {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form_realizacje{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.list-group{
+  width: 50%;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-color{
+  background-color: rgb(158, 0, 0);
+  color: #fff; 
+}
+.btn-send{
+  background-color:rgb(24, 113, 2);
+  color: #fff;
+}
+.profile-image-pic{
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+.cardbody-color{
+  background-color: #ebf2fa;
+}
+a{
+  text-decoration: none;
+}
+
+.form-group{
+  padding: 10px;
+}
+.required:after {
+  content:" *";
+  color: red;
+}
+
+.gallery {
+  margin: 15px;
+  padding: 15px;
+}
+ul {
+  list-style-type: square; /* Kształt: kwadrat */
+}
+.custom-li {
+  list-style-type: square; /* Kształt: kwadrat */
+}
+.text-red {
+  color: rgb(235, 5, 5);
+}
+.social-media-container {
+  max-width: 10px; /* Ustaw maksymalną szerokość kontenera */
+  margin: 0 auto; /* Wyśrodkuj kontener na stronie */
+}
+
+.social-media-icons {
+  max-width: 10px;
+  max-height: 50px;
+  display: flex;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+
+}
+
+.social-icon {
+  width: 30px;
+}
+
+.social-media-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
